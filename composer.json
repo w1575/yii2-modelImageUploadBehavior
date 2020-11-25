@@ -1,0 +1,8 @@
+{
+    "name": "w1575/ModelImageUploadBehavior",
+    "description": "Simple behavior for uploading images",
+    "require": {
+        "php": ">=7.1",
+        "yiisoft/yii2-imagine": "2.*"
+    }
+}
