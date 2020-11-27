@@ -1,5 +1,5 @@
 {
-    "name": "w1575/ModelImageUploadBehavior",
+    "name": "w1575/model-image-upload-behavior",
     "description": "Simple behavior for uploading images",
     "require": {
         "php": ">=7.1",
