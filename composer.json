@@ -4,5 +4,17 @@
     "require": {
         "php": ">=7.1",
         "yiisoft/yii2-imagine": "2.*"
-    }
+    },
+     "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "w1575",
+            "email": "w1575@ya.ru"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {"w1575\\": "src/"}
+    },
 }
