@@ -16,5 +16,5 @@
     "minimum-stability": "stable",
     "autoload": {
         "psr-4": {"w1575\\": "src/"}
-    },
+    }
 }
