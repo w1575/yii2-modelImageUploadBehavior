@@ -5,7 +5,7 @@
         "php": ">=7.1",
         "yiisoft/yii2-imagine": "2.*"
     },
-     "type": "library",
+    "type": "library", 
     "license": "MIT",
     "authors": [
         {
@@ -16,5 +16,10 @@
     "minimum-stability": "stable",
     "autoload": {
         "psr-4": {"w1575\\": "src/"}
+    }
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
     }
 }
