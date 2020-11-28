@@ -16,7 +16,7 @@
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {"w1575\\": "src/"}
-    }
+    },
     "extra": {
         "branch-alias": {
             "dev-master": "1.0-stable"
