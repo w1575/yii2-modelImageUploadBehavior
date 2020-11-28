@@ -1,7 +1,7 @@
 <?php
 
 
-namespace w1575\behaviors;
+namespace w1575;
 
 
 use Imagine\Image\Box;
