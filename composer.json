@@ -13,7 +13,7 @@
             "email": "w1575@ya.ru"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "autoload": {
         "psr-4": {"w1575\\": "src/"}
     },
