@@ -2,6 +2,7 @@
 
 namespace w1575;
 
+use Yii;
 use Imagine\Image\Box;
 use yii\db\ActiveRecord;
 use yii\helpers\FileHelper;
