@@ -1,8 +1,6 @@
 <?php
 
-
-namespace frontend\components\behaviors;
-
+namespace w1575;
 
 use Imagine\Image\Box;
 use yii\db\ActiveRecord;
