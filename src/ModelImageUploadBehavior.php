@@ -1,7 +1,7 @@
 <?php
 
 
-namespace w1575\behaviors;
+namespace frontend\components\behaviors;
 
 
 use Imagine\Image\Box;
@@ -58,10 +58,13 @@ class ModelImageUploadBehavior extends \yii\base\Behavior
      */
     public $generatePreview = true;
     /**
+     * @var bool если устновлено в true, то при загрузки нового файла, старый будет удален
+     */
+    public $deleteOldFile = true;
+    /**
      * @var array хранятся параметры аттриубута
      */
     private $attributeParams = [];
-
     /**
      * Настройки изображения. Пример
         [
@@ -162,6 +165,12 @@ class ModelImageUploadBehavior extends \yii\base\Behavior
                 continue;
             }
 
+            $oldFileName = null;
+
+            if ($this->getSetting('deleteOldFile') === true) {
+                $oldFileName =  $this->owner->{$attributesSetting['dbAttribute']};
+            }
+
             $this->attributeParams = $attributesSetting;
             $folderPath = \yii::getAlias("@{$this->getSetting('folderAlias')}");
             $attribute =  $this->owner->{$attributeName};
@@ -213,8 +222,18 @@ class ModelImageUploadBehavior extends \yii\base\Behavior
                     $this->owner->addError($attributeName, $e->getMessage());
                     return false;
                 }
-                $this->owner->{$attributesSetting['dbAttribute']} = $fileName;
             }
+
+            if (empty($oldFileName) !== true) {
+                unlink("{$folderPath}/{$oldFileName}");
+                if ($generatePreview === true) {
+                    unlink(
+                        $previewFolder . $this->getSetting('previewPrefix') . $oldFileName
+                    );
+                }
+            }
+
+            $this->owner->{$attributesSetting['dbAttribute']} = $fileName;
         }
     }
 
