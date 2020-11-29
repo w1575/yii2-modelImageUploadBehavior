@@ -223,11 +223,22 @@ class ModelImageUploadBehavior extends \yii\base\Behavior
             }
 
             if (empty($oldFileName) !== true) {
-                unlink("{$folderPath}/{$oldFileName}");
+                try {
+                    unlink("{$folderPath}/{$oldFileName}");
+                } catch (\Exception $e) {
+                    Yii::$app->session->setFlash('error', $e->getMessage());
+
+                }
+                
                 if ($generatePreview === true) {
-                    unlink(
-                        $previewFolder . $this->getSetting('previewPrefix') . $oldFileName
-                    );
+                    try {
+                        unlink(
+                            $previewFolder . $this->getSetting('previewPrefix') . $oldFileName
+                        );
+                    } catch (\Exception $e) {
+                        Yii::$app->session->setFlash('error', $e->getMessage());
+                    }
+                   
                 }
             }
 
